@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -39,7 +39,7 @@ namespace VILICVANE.ForceUTF8
         /// <summary>
         /// ForceUTF8Package GUID string.
         /// </summary>
-        public const string PackageGuidString = "9c0cad96-afa3-47a4-9090-12bb64f4d8b3";
+        public const string PackageGuidString = "c0b70c8f-3e21-4e27-a874-799ffae09b48";
 
         /// <summary>
         /// Default constructor of the package.
@@ -67,7 +67,7 @@ namespace VILICVANE.ForceUTF8
         /// </summary>
         protected override void Initialize()
         {
-            Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
+            Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
             base.Initialize();
 
             var dte = GetService(typeof(DTE)) as DTE2;
@@ -75,8 +75,10 @@ namespace VILICVANE.ForceUTF8
             documentEvents.DocumentSaved += DocumentEvents_DocumentSaved;
         }
 
-        void DocumentEvents_DocumentSaved(Document document) {
-            if (document.Kind != "{8E7B96A8-E33D-11D0-A6D5-00C04FB67F6A}") {
+        void DocumentEvents_DocumentSaved(Document document)
+        {
+            if (document.Kind != "{8E7B96A8-E33D-11D0-A6D5-00C04FB67F6A}")
+            {
                 // then it's not a text file
                 return;
             }
